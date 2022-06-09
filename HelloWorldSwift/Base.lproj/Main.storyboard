@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,58 +12,92 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HelloWorldSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HelloWorldSwift" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DdP-BG-kEc">
-                                <rect key="frame" x="48.5" y="118" width="317" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg1-sr-BUa">
-                                <rect key="frame" x="82" y="775" width="250" height="50"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItD-zG-xXd" userLabel="Red Light">
+                                <rect key="frame" x="137.5" y="50" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="IfJ-BS-CnB"/>
+                                    <constraint firstAttribute="width" constant="100" id="fm9-N1-DFO"/>
+                                    <constraint firstAttribute="height" constant="100" id="wOM-pK-IJc"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrU-uf-Bgq" userLabel="Yellow Light">
+                                <rect key="frame" x="137.5" y="190" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="QUl-nf-1RN"/>
+                                    <constraint firstAttribute="height" constant="100" id="rmH-Mz-M7D"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nab-Gr-TB6" userLabel="Green Light">
+                                <rect key="frame" x="137.5" y="330" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0bJ-jk-PMI"/>
+                                    <constraint firstAttribute="height" constant="100" id="89P-g1-D23"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6x-VB-TQS">
+                                <rect key="frame" x="62.5" y="577" width="250" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="OJq-Kh-K8n"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show Text">
+                                <buttonConfiguration key="configuration" style="plain" title="Start">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="makeButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vv-2b-6ZB"/>
+                                    <action selector="toggleLightButtonAction" destination="BYZ-38-t0r" eventType="touchUpOutside" id="g7p-jK-ZTw"/>
+                                    <action selector="toggleLightButtonAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="rbM-n2-8xW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="Pg1-sr-BUa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RCK-Od-yLw"/>
-                            <constraint firstItem="DdP-BG-kEc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="REb-uK-xTP"/>
-                            <constraint firstItem="DdP-BG-kEc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZRV-XZ-1rF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Pg1-sr-BUa" secondAttribute="bottom" constant="37" id="aEV-06-ub7"/>
+                            <constraint firstItem="Nab-Gr-TB6" firstAttribute="top" secondItem="rrU-uf-Bgq" secondAttribute="bottom" constant="40" id="QKE-kM-otQ"/>
+                            <constraint firstItem="rrU-uf-Bgq" firstAttribute="top" secondItem="ItD-zG-xXd" secondAttribute="bottom" constant="40" id="V5f-IR-qNc"/>
+                            <constraint firstItem="e6x-VB-TQS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zvq-if-lEU"/>
+                            <constraint firstItem="Nab-Gr-TB6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fhN-C9-stK"/>
+                            <constraint firstItem="ItD-zG-xXd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZq-ou-5gh"/>
+                            <constraint firstItem="rrU-uf-Bgq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kPn-Ov-LfK"/>
+                            <constraint firstItem="ItD-zG-xXd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qLU-zd-E6V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e6x-VB-TQS" secondAttribute="bottom" constant="40" id="qu2-BJ-zNX"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="helloWorldLabel" destination="DdP-BG-kEc" id="yhm-Y1-wtE"/>
-                        <outlet property="toggleButton" destination="Pg1-sr-BUa" id="P8r-5g-tXl"/>
+                        <outlet property="greenLight" destination="Nab-Gr-TB6" id="uDy-Dn-Ape"/>
+                        <outlet property="redLight" destination="ItD-zG-xXd" id="wGI-sv-JvZ"/>
+                        <outlet property="toggleLightButton" destination="e6x-VB-TQS" id="pBx-XW-KLQ"/>
+                        <outlet property="yellowLight" destination="rrU-uf-Bgq" id="ih6-Zf-4G4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.637681159420293" y="93.75"/>
+            <point key="canvasLocation" x="23.199999999999999" y="93.103448275862078"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

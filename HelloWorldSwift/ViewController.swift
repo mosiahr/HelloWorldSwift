@@ -7,27 +7,53 @@
 
 import UIKit
 
+enum CurrentLight {
+    case red, yellow, green
+}
+
 class ViewController: UIViewController {
-    @IBOutlet var helloWorldLabel: UILabel!
-    @IBOutlet var toggleButton: UIButton!
+    @IBOutlet var redLight: UIView!
+    @IBOutlet var yellowLight: UIView!
+    @IBOutlet var greenLight: UIView!
+    
+    @IBOutlet var toggleLightButton: UIButton!
+    
+    private let lightIsOn: CGFloat = 1
+    private let lightIsOff: CGFloat = 0.3
+    private var currentLight = CurrentLight.red
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        redLight.layer.cornerRadius = 50
+        redLight.alpha = lightIsOff
         
-        helloWorldLabel.isHidden = true
-        toggleButton.layer.cornerRadius = 10
+        yellowLight.layer.cornerRadius = 50
+        yellowLight.alpha = lightIsOff
         
-    }
-
-    @IBAction func makeButtonAction() {
-        if helloWorldLabel.isHidden {
-            helloWorldLabel.isHidden = false
-            toggleButton.setTitle("Hide text", for: .normal)
-        } else {
-            helloWorldLabel.isHidden = true
-            toggleButton.setTitle("Show text", for: .normal)
-        }
+        greenLight.layer.cornerRadius = 50
+        greenLight.alpha = lightIsOff
+        
+        toggleLightButton.layer.cornerRadius = 10
+//        toggleLightButton.setFontSize(self: <#T##CGContext#>, 30)
     }
     
+    @IBAction func toggleLightButtonAction() {
+        toggleLightButton.setTitle("NEXT", for: .normal)
+
+        switch currentLight {
+        case .red:
+            redLight.alpha = lightIsOn
+            greenLight.alpha = lightIsOff
+            currentLight = .yellow
+        case .yellow:
+            redLight.alpha = lightIsOff
+            yellowLight.alpha = lightIsOn
+            currentLight = .green
+        case .green:
+            yellowLight.alpha = lightIsOff
+            greenLight.alpha = lightIsOn
+            currentLight = .red
+        }
+    }
 }
 
