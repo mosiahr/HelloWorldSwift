@@ -8,26 +8,48 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet var helloWorldLabel: UILabel!
-    @IBOutlet var toggleButton: UIButton!
+    @IBOutlet var mainView: UIView!
+    
+    // MARK: Red Attributs
+    @IBOutlet var redNumber: UILabel!
+    @IBOutlet var redSlider: UISlider!
+    
+    // MARK: Green Attributs
+    @IBOutlet var greenNumber: UILabel!
+    @IBOutlet var greenSlider: UISlider!
+   
+    // MARK: Blue Attributs
+    @IBOutlet var blueNumber: UILabel!
+    @IBOutlet var blueSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        helloWorldLabel.isHidden = true
-        toggleButton.layer.cornerRadius = 10
-        
+        mainView.layer.cornerRadius = 10
     }
 
-    @IBAction func makeButtonAction() {
-        if helloWorldLabel.isHidden {
-            helloWorldLabel.isHidden = false
-            toggleButton.setTitle("Hide text", for: .normal)
-        } else {
-            helloWorldLabel.isHidden = true
-            toggleButton.setTitle("Show text", for: .normal)
-        }
+    @IBAction func redSliderAction() {
+        redNumber.text = String(round(redSlider.value))
+        setMainVeiwColor()
     }
     
+    @IBAction func greenSliderAction() {
+        greenNumber.text = String(round(greenSlider.value))
+        setMainVeiwColor()
+    }
+    
+    @IBAction func blueSliderAction() {
+        blueNumber.text = String(round(blueSlider.value))
+        setMainVeiwColor()
+        
+    }
+    
+    private func setMainVeiwColor() {
+        mainView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value/255),
+            green: CGFloat(greenSlider.value/255),
+            blue: CGFloat(blueSlider.value/255),
+            alpha: 1)
+    }
+    
+    
 }
-
